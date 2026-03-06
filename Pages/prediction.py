@@ -5,16 +5,15 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 
 churn_data = pd.read_csv(
-    "C:\\Users\\Rohan S Mistry\\Downloads\\MLProject-ChurnPrediction-main\\MLProject-ChurnPrediction-main\\tel_churn.csv")
+    "C:\\Users\\ut1a2\\Desktop\\Data Analytics Projects 🔥\\Customer-Churn-Analysis-and-Classification\\tel_churn.csv")
 x = churn_data.drop('Churn', axis=1)
 y = churn_data['Churn']
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2)
 
 loaded_model = pickle.load(open(
-    'C:\\Users\\Rohan S Mistry\\Downloads\\MLProject-ChurnPrediction-main\\MLProject-ChurnPrediction-main\\model.sav', 'rb'))
+    'C:\\Users\\ut1a2\\Desktop\\Data Analytics Projects 🔥\\Customer-Churn-Analysis-and-Classification\\model.sav', 'rb'))
 
-
-def chrun_prediction(input_data):
+def churn_prediction(input_data):
 
     input_data_as_numpy_array = np.asarray(input_data)
     input_data_reshaped = input_data_as_numpy_array.reshape(1, -1)
@@ -139,7 +138,7 @@ def main():
     predict = ''
 
     if st.button('Churn Analysis Prediction'):
-        predict = chrun_prediction([SeniorCitizen, MonthlyCharges, TotalCharges, gender_Female, gender_Male, Partner_No, Partner_Yes, Dependents_No, Dependents_Yes, PhoneService_No, PhoneService_Yes, MultipleLines_No, MultipleLines_No_phone_service, MultipleLines_Yes, InternetService_DSL, InternetService_Fiber_optic, InternetService_No, OnlineSecurity_No, OnlineSecurity_No_internet_service, OnlineSecurity_Yes, OnlineBackup_No, OnlineBackup_No_internet_service, OnlineBackup_Yes, DeviceProtection_No, DeviceProtection_No_internet_service, DeviceProtection_Yes, TechSupport_No,
+        predict = churn_prediction([SeniorCitizen, MonthlyCharges, TotalCharges, gender_Female, gender_Male, Partner_No, Partner_Yes, Dependents_No, Dependents_Yes, PhoneService_No, PhoneService_Yes, MultipleLines_No, MultipleLines_No_phone_service, MultipleLines_Yes, InternetService_DSL, InternetService_Fiber_optic, InternetService_No, OnlineSecurity_No, OnlineSecurity_No_internet_service, OnlineSecurity_Yes, OnlineBackup_No, OnlineBackup_No_internet_service, OnlineBackup_Yes, DeviceProtection_No, DeviceProtection_No_internet_service, DeviceProtection_Yes, TechSupport_No,
                                    TechSupport_No_internet_service, TechSupport_Yes, StreamingTV_No, StreamingTV_No_internet_service, StreamingTV_Yes, StreamingMovies_No, StreamingMovies_No_internet_service, StreamingMovies_Yes, Contract_Month_to_month, Contract_One_year, Contract_Two_year, PaperlessBilling_No, PaperlessBilling_Yes, PaymentMethod_Bank_transfer_automatic, PaymentMethod_Credit_card_automatic, PaymentMethod_Electronic_check, PaymentMethod_Mailed_check, tenure_group_1_12, tenure_group_13_24, tenure_group_25_36, tenure_group_37_48, tenure_group_49_60, tenure_group_61_72])
 
     st.success(predict)
