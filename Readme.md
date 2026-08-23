@@ -144,7 +144,7 @@ pip install -r requirements.txt
 
 Ensure that compatible versions of **NumPy** and **Pandas** are installed.
 
-### 3. Run the Streamlit app
+### 4. Run the Streamlit app
 ```bash
 streamlit run app.py
 ```
